@@ -40,7 +40,5 @@ The instructor name is Mohsen with age 29 years old and salary is 15000 EGP.
 The instructor name is Ahmed with age 35 years old and salary is 25000 EGP.
 ```
 
-## **Potential Improvements**  
-- **Encapsulation**: Make attributes `private` and use getter/setter methods.  
-- **Input Handling**: Allow users to enter instructor details dynamically.  
+## **Potential Improvements**
 - **File Handling**: Save instructor data to a file for later retrieval.  
