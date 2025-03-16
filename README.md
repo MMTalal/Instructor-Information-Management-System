@@ -1,17 +1,21 @@
 # **Instructor Information Management System**  
 
 ## **Overview**  
-A simple C++ program to manage and display instructor details using object-oriented programming. The program allows users to input instructor details, validates the input, and displays the filtered and validated information.
+A C++ program to manage and display instructor details using object-oriented programming. The program allows users to input instructor details, validates the input, and displays the filtered and validated information. It demonstrates the use of **constructor overloading** to initialize objects with default or user-provided values.
 
 ## **Features**  
 - Defines an **`Instructors` class** with private attributes (`Name`, `Age`, and `Salary`) and public methods to set and retrieve these attributes.  
-- Includes a **`print()` method** to display instructor details.  
+- Includes **constructor overloading**:  
+  - **Default Constructor**: Initializes attributes with default values (`Name = "Unknown"`, `Age = 0`, `Salary = 0`).  
+  - **Parameterized Constructor**: Initializes attributes with user-provided values and validates them.  
 - Validates user input for:  
   - **Name**: Only alphabetic characters and spaces are allowed.  
   - **Age**: Must be between 26 and 59 years.  
   - **Salary**: Must be between 7001 and 29999 EGP.  
-- Creates two instances of the `Instructors` class in the `main()` function.  
-- Assigns values to each instructor and prints their details using the `print()` method.  
+- Creates two instances of the `Instructors` class in the `main()` function:  
+  - One using the **default constructor**.  
+  - One using the **parameterized constructor**.  
+- Prints instructor details using the `print()` method.  
 
 ## **Code Structure**  
 - **`Instructors` Class**:  
@@ -19,6 +23,9 @@ A simple C++ program to manage and display instructor details using object-orien
     - `Name`: Stores the instructor's name (default: `"Unknown"`).  
     - `Age`: Stores the instructor's age (default: `0`).  
     - `Salary`: Stores the instructor's salary in EGP (default: `0`).  
+  - **Constructors**:  
+    - **Default Constructor**: Initializes attributes with default values.  
+    - **Parameterized Constructor**: Validates and initializes attributes with user-provided values.  
   - **Methods**:  
     - `SetName(string n)`: Validates and sets the instructor's name. Filters out non-alphabetic characters.  
     - `GetName()`: Returns the instructor's name.  
@@ -29,9 +36,12 @@ A simple C++ program to manage and display instructor details using object-orien
     - `print()`: Prints the instructor's details.  
 
 - **`main()` Function**:  
-  - Creates two instructor objects (`No1` and `No2`).  
+  - Creates two instructor objects:  
+    - `No1`: Initialized using the **default constructor**.  
+    - `No2`: Initialized using the **parameterized constructor**.  
   - Prompts the user to input details for each instructor.  
-  - Validates and sets the attributes using the `SetName`, `SetAge`, and `SetSalary` methods.  
+  - Validates and sets the attributes using the `SetName`, `SetAge`, and `SetSalary` methods for `No1`.  
+  - Uses the **parameterized constructor** to validate and initialize attributes for `No2`.  
   - Calls `print()` to display each instructor's details.  
 
 ## **How to Run the Program**  
@@ -55,10 +65,10 @@ The instructor name is Mamd with age 30 years old and salary is 15000 EGP.
 
 Enter the name of second instructor: J@ne D0e  
 Enter the age of second instructor: 20  
-The age must be more than 25 and less than 60 years old.  
+Invalid age. Using default age (25).  
 Enter the salary of second instructor: 5000  
-The salary must be more than 7000 and less than 30000 EGP.  
-The instructor name is Jne De with age 0 years old and salary is 0 EGP.  
+Invalid salary. Using default salary (7000).  
+The instructor name is Jne De with age 25 years old and salary is 7000 EGP.  
 ```
 
 ## **Potential Improvements**  
