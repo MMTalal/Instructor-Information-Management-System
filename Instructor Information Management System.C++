@@ -1,4 +1,5 @@
 #include <iostream> // Include the iostream library for input and output operations
+#include <string> // Include the string library for input and output texts
 using namespace std; // Use the standard namespace to avoid prefixing std:: before standard functions
 
 // Define a class named Instructors to store details of instructors
@@ -7,7 +8,7 @@ class Instructors
 private: // Access specifier to make class members private (only accessible within the class)
 
     // Attributes of the class to store instructor details
-    string Name;   // Variable to store the instructor's name
+    string Name = "Unknown";   // Variable to store the instructor's name. initialized to "Unknown"
     int Age = 0;   // Variable to store the instructor's age, initialized to 0
     int Salary = 0; // Variable to store the instructor's salary, initialized to 0
     // Initial values ​​ensure that variables always have a default value if not set
@@ -16,9 +17,31 @@ private: // Access specifier to make class members private (only accessible with
 public: // Public access specifier to allow access to class members outside the class
     
     // Function to set the name of the instructor
-    void SetName (string n)
+    void SetName(string n)
     {
-        Name = n;
+        string text = ""; // Initialize an empty string to store the valid characters of the name
+    
+        // Loop through each character in the input string 'n'
+        for (int i = 0; i < n.size(); i++) 
+        {
+            // Check if the current character is an uppercase letter (A-Z) or a lowercase letter (a-z)
+            if ((n[i] >= 'A' && n[i] <= 'Z') || (n[i] >= 'a' && n[i] <= 'z') || (n[i] == ' ')) 
+            {
+                // If the character is valid (an alphabet), append it to the 'text' string
+                text += n[i];
+            }
+            // Non-alphabetic characters (like numbers or symbols) are ignored
+        }
+    
+        // Update the 'Name' attribute with the filtered name
+        Name = text;
+    
+        // If no valid alphabetic characters were found, set the name to "Unknown"
+        if (text.empty()) 
+        {
+            Name = "Unknown";
+            cout << "The name contains no valid alphabetic characters. Setting name to 'Unknown'." << endl;
+        }
     }
     
     // Function to retrieve the name of the instructor
@@ -36,7 +59,7 @@ public: // Public access specifier to allow access to class members outside the 
         }
         else
         {
-            cout << "The age must be more than 25 years old." << endl; // Print error message if invalid
+            cout << "The age must be more than 25 and less than 60 years old." << endl; // Print error message if invalid
         }
     }
     
@@ -55,7 +78,7 @@ public: // Public access specifier to allow access to class members outside the 
         }
         else
         {
-            cout << "The salary must be more than 7000 EGP." << endl; // Print error message if invalid
+            cout << "The salary must be more than 7000 and less than 30000 EGP." << endl; // Print error message if invalid
         }
     }
     
@@ -98,10 +121,13 @@ int main() {
         int salary;
         cin >> salary;
         No1.SetSalary(salary); // Set the instructor's salary
-
+        
         // Print the details of the first instructor
         No1.print();
     }
+
+    // Clear the input buffer before reading the name of the second instructor
+    cin.ignore();
 
     // Create the second instructor object and input data
     {
