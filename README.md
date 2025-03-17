@@ -15,7 +15,8 @@ A C++ program to manage and display instructor details using object-oriented pro
 - Creates two instances of the `Instructors` class in the `main()` function:  
   - One using the **default constructor**.  
   - One using the **parameterized constructor**.  
-- Prints instructor details using the `print()` method.  
+- Prints instructor details using the `print()` method.
+- Implements a `destructor` to print a farewell message when an object is destroyed.  
 
 ## **Code Structure**  
 - **`Instructors` Class**:  
@@ -33,7 +34,8 @@ A C++ program to manage and display instructor details using object-oriented pro
     - `GetAge()`: Returns the instructor's age.  
     - `SetSalary(int s)`: Validates and sets the instructor's salary.  
     - `GetSalary()`: Returns the instructor's salary.  
-    - `print()`: Prints the instructor's details.  
+    - `print()`: Prints the instructor's details.
+    - `~Instructors()`: Destructor that outputs a farewell message.
 
 - **`main()` Function**:  
   - Creates two instructor objects:  
@@ -62,13 +64,15 @@ Enter the name of first instructor: Ma7m5d
 Enter the age of first instructor: 30  
 Enter the salary of first instructor: 15000  
 The instructor name is Mamd with age 30 years old and salary is 15000 EGP.  
+Bye Bye Mamd
 
 Enter the name of second instructor: J@ne D0e  
 Enter the age of second instructor: 20  
 Invalid age. Using default age (25).  
 Enter the salary of second instructor: 5000  
 Invalid salary. Using default salary (7000).  
-The instructor name is Jne De with age 25 years old and salary is 7000 EGP.  
+The instructor name is Jne De with age 25 years old and salary is 7000 EGP.
+Bye Bye Jne De  
 ```
 
 ## **Potential Improvements**  
