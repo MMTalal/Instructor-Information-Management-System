@@ -72,7 +72,7 @@ public: // Public access specifier to allow access to class members outside the 
         }
     }
     // ------------ The end of constructor overloading ------------
-
+    
     void SetName(string n)
     {
         string text = ""; // Initialize an empty string to store the valid characters of the name
@@ -152,6 +152,15 @@ public: // Public access specifier to allow access to class members outside the 
              << " with age " << Age                // Print the age of the instructor
              << " years old and salary is " << Salary  // Print the salary of the instructor
              << " EGP." << endl;  // End the output with a newline
+    }
+    
+    // Destructor for the Instructors class.
+    ~Instructors() 
+    {
+        // This is called automatically when an object of this class is destroyed.
+        cout << "Bye Bye " << Name << endl;
+        // Outputs a farewell message with the Name of the instructor.
+        // This can be useful for debugging or logging purposes to track object destruction.
     }
 };
 
